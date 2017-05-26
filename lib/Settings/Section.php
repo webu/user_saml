@@ -26,8 +26,9 @@ namespace OCA\User_SAML\Settings;
 use OCP\IL10N;
 use OCP\IURLGenerator;
 use OCP\Settings\IIconSection;
+use OCP\Settings\ISection;
 
-class Section implements IIconSection {
+class Section implements ISection {
 	/** @var IL10N */
 	private $l;
 	/** @var IURLGenerator */
@@ -64,10 +65,4 @@ class Section implements IIconSection {
 		return 75;
 	}
 
-	/**
-	 * {@inheritdoc}
-	 */
-	public function getIcon() {
-		return $this->url->imagePath('user_saml', 'app-dark.svg');
-	}
 }
