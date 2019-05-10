@@ -26,6 +26,7 @@ use OCP\IConfig;
 use OCP\IRequest;
 use OCP\ISession;
 use OCP\IURLGenerator;
+use OneLogin\Saml2\Constants;
 
 class SAMLSettings {
 	/** @var IURLGenerator */
@@ -141,6 +142,9 @@ class SAMLSettings {
 		if($spxprivateKey !== '') {
 			$settings['sp']['privateKey'] = $spxprivateKey;
 		}
+
+		//TODO: make configurable see OneLogin\Saml2\Constants
+		$settings['sp']['NameIDFormat'] = Constants::NAMEID_UNSPECIFIED;
 
 		$idpx509cert = $this->config->getAppValue('user_saml', $prefix . 'idp-x509cert', '');
 		if($idpx509cert !== '') {
